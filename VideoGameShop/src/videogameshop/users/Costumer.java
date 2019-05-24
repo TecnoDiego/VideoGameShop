@@ -10,6 +10,6 @@ public class Costumer extends User{
 
     @Override
     public String toString() {
-        return "Costumer " + super.toString();
+        return "Status= Costumer " + super.toString() + " ";
     }
 }

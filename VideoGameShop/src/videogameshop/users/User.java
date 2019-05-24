@@ -40,7 +40,7 @@ abstract public class User {
 
     @Override
     public String toString() {
-        return "id=" + id + ", name=" + name + ", birthdate=" + birthdate + '}';
+        return "id=" + id + ", name=" + name + ", birthdate=" + birthdate;
     }
    
    

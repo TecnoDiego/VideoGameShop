@@ -10,7 +10,7 @@ public class NewGame extends Game{
 
     @Override
     public String toString() {
-        return "NewGame " + super.toString();
+        return "NewGame - " + super.toString();
     }
     
     

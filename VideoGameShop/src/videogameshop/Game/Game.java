@@ -73,9 +73,6 @@ abstract public class Game {
     public String toString() {
         return "id=" + id + ", title=" + title + ", price=" + price + 
                 ", stock=" + stock + ", platform=" + platform + 
-                ", releaseDate=" + releaseDate + '}';
+                ", releaseDate=" + releaseDate ;
     }
-    
-    
-    
 }

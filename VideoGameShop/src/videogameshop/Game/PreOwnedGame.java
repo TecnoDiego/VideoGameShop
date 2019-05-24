@@ -10,6 +10,6 @@ public class PreOwnedGame extends Game{
 
     @Override
     public String toString() {
-        return "PreOwnedGame " + super.toString();
+        return "PreOwnedGame - " + super.toString();
     }  
 }

@@ -5,7 +5,9 @@ import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
 import videogameshop.Game.Game;
+import videogameshop.users.Admin;
 import videogameshop.users.Partner;
+import java.util.Date;
 
 /*
 Videogame shop management aplication.
@@ -33,25 +35,100 @@ parameter (price, name, etc). Only the admins have acces to this tool.
 files needed:
 -global file with: costumer generated id, admin info
 -all games
--all partners
--all transactions
+-all partners: doesn't save bought, sold, rented games. Transaction file does.
+-all transactions: this file is needed to load the previous file into the 
+application.
 */
 
 public class VideoGameShop {
+    
+    
+    public static void menu(){
+        System.out.println("1. Add partner");
+        System.out.println("2. Add game");
+        System.out.println("3. Add transaction");
+        System.out.println("4. Search partner (by id)");
+        System.out.println("5. Search game (by id)");
+        System.out.println("6. Search transaction (by partner or game id)");
+        System.out.println("7. Show all partners (filtered)");
+        System.out.println("8. Show all games (filtered)");
+        System.out.println("9. Show all transactions (filtered)");
+        System.out.println("Q. Exit");
+        System.out.print("Option: ");
+    }
+    
+    
 
     public static void main(String[] args) {
         
         Scanner sc = new Scanner(System.in);
-        List<Game> allGames = new ArrayList<>();
-        List<Partner> allPartners = new ArrayList<>();
-        
-        System.out.println("1. Add partner");
-        System.out.println("2. Search partner");
-        System.out.println("3. Search game");
-        System.out.println("4. Add transaction");
-        System.out.println("5. Search transaction");
-        System.out.println("6.");
-        System.out.println("7.");
-        
+        Shop shop = new Shop();
+        // Login option not implemented yet
+        String option;
+        do{
+            menu();
+            option = sc.nextLine();
+            switch(option){
+                case "1":
+                    shop.addPartner();
+                    break;
+                    
+                case "2":
+                    shop.addGame();
+                    break;
+                    
+                case "3":
+                    /*
+                    To implement a method that searchs a partner and a game.
+                    Asks to the type of transaction to finally save it on a list.
+                    When the program shuts down it automatically saves the data 
+                    into a file.
+                    If we want to save a costumer transaction, we must generate
+                    a predetermined costumer.
+                    */
+                    break;
+                    
+                case "4":
+                    System.out.print("Enter partner id: ");
+                    Partner p = shop.searchPartner(sc.nextLine());
+                    if(p == null){
+                        System.out.println("Partner not found");
+                    }
+                    else{
+                        System.out.println(p);
+                    }
+                    
+                    break;
+                    
+                case "5":
+                    System.out.print("Enter game id: ");
+                    Game g = shop.searchGame(sc.nextLine());
+                    if(g == null){
+                        System.out.println("Game not found");
+                    }
+                    else{
+                        System.out.println(g);
+                    }
+                    break;
+                    
+                case "6":
+                    // needs option 3
+                    break;
+                case "7":
+                    shop.showAllPartners();
+                    break;
+                case "8":
+                    shop.showAllGames();
+                    break;
+                case "9":
+                    // needs option 3
+                    break;
+                default:
+                    System.out.println("Invalid option");
+                    break;
+            }
+            System.out.println();
+        }while(!option.equals("Q"));
+         
     }
 }

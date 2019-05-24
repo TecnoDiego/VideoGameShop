@@ -102,6 +102,6 @@ public class Partner extends User{
 
     @Override
     public String toString() {
-        return "Partner " + super.toString() + "points=" + points + '}';
+        return "Status= Partner " + super.toString() + "points=" + points + " ";
     }
 }
